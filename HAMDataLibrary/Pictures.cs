@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HAMWeb.Models
+namespace HAMDataLibrary
 {
     public partial class Pictures
     {

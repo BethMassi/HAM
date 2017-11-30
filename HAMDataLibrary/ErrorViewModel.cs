@@ -1,6 +1,6 @@
 using System;
 
-namespace HAMWeb.Models
+namespace HAMDataLibrary
 {
     public class ErrorViewModel
     {

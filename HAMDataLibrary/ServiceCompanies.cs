@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HAMWeb.Models
+namespace HAMDataLibrary
 {
-    public partial class Locations
+    public partial class ServiceCompanies
     {
-        public Locations()
+        public ServiceCompanies()
         {
             Assets = new HashSet<Assets>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ContactName { get; set; }
+        public string Phone { get; set; }
         public string CreatedBy { get; set; }
         public DateTimeOffset? Created { get; set; }
         public string ModifiedBy { get; set; }

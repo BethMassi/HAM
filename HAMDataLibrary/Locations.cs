@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HAMWeb.Models
+namespace HAMDataLibrary
 {
-    public partial class Categories
+    public partial class Locations
     {
-        public Categories()
+        public Locations()
         {
             Assets = new HashSet<Assets>();
         }

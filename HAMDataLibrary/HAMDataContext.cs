@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace HAMWeb.Models
+namespace HAMDataLibrary
 {
     public partial class HAMDataContext : DbContext
     {
