@@ -22,7 +22,7 @@ namespace HAMWeb.api
 
         // GET: api/ServiceCompanies
         [HttpGet]
-        public IEnumerable<ServiceCompanies> GetServiceCompanies()
+        public IEnumerable<ServiceCompany> GetServiceCompanies()
         {
             return _context.ServiceCompanies;
         }
@@ -48,7 +48,7 @@ namespace HAMWeb.api
 
         // PUT: api/ServiceCompanies/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutServiceCompanies([FromRoute] int id, [FromBody] ServiceCompanies serviceCompanies)
+        public async Task<IActionResult> PutServiceCompanies([FromRoute] int id, [FromBody] ServiceCompany serviceCompanies)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HAMWeb.api
 
         // POST: api/ServiceCompanies
         [HttpPost]
-        public async Task<IActionResult> PostServiceCompanies([FromBody] ServiceCompanies serviceCompanies)
+        public async Task<IActionResult> PostServiceCompanies([FromBody] ServiceCompany serviceCompanies)
         {
             if (!ModelState.IsValid)
             {

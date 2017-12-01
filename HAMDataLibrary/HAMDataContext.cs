@@ -17,13 +17,13 @@ namespace HAMDataLibrary
         public virtual DbSet<AspnetUsers> AspnetUsers { get; set; }
         public virtual DbSet<AspnetUsersInRoles> AspnetUsersInRoles { get; set; }
         public virtual DbSet<AspnetWebEventEvents> AspnetWebEventEvents { get; set; }
-        public virtual DbSet<Assets> Assets { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Locations> Locations { get; set; }
-        public virtual DbSet<MaintenanceLogs> MaintenanceLogs { get; set; }
-        public virtual DbSet<Pictures> Pictures { get; set; }
+        public virtual DbSet<Asset> Assets { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
+        public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<RolePermissions> RolePermissions { get; set; }
-        public virtual DbSet<ServiceCompanies> ServiceCompanies { get; set; }
+        public virtual DbSet<ServiceCompany> ServiceCompanies { get; set; }
 
         public HAMDataContext(DbContextOptions<HAMDataContext> options) : base(options)
         { }
@@ -372,15 +372,13 @@ namespace HAMDataLibrary
                 entity.Property(e => e.RequestUrl).HasMaxLength(1024);
             });
 
-            modelBuilder.Entity<Assets>(entity =>
+            modelBuilder.Entity<Asset>(entity =>
             {
                 entity.Property(e => e.AssetServiceCompany1).HasColumnName("Asset_ServiceCompany1");
 
                 entity.Property(e => e.CategoryAsset)
                     .HasColumnName("Category_Asset")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                    .HasDefaultValueSql("((0))");                
 
                 entity.Property(e => e.LocationAsset)
                     .HasColumnName("Location_Asset")
@@ -390,18 +388,12 @@ namespace HAMDataLibrary
 
                 entity.Property(e => e.Model).HasMaxLength(255);
 
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
-
-                entity.Property(e => e.Name)
+               entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.PurchaseDate).HasColumnType("datetime");
-
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
 
                 entity.Property(e => e.SerialNumber).HasMaxLength(255);
 
@@ -425,43 +417,49 @@ namespace HAMDataLibrary
                     .HasForeignKey(d => d.LocationAsset)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Location_Asset");
+                
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
+
             });
 
-            modelBuilder.Entity<Categories>(entity =>
+            modelBuilder.Entity<Category>(entity =>
             {
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
-
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
-
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
             });
 
-            modelBuilder.Entity<Locations>(entity =>
+            modelBuilder.Entity<Location>(entity =>
             {
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
-
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
-
+                
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
             });
 
-            modelBuilder.Entity<MaintenanceLogs>(entity =>
+                modelBuilder.Entity<MaintenanceLog>(entity =>
             {
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
                 entity.Property(e => e.MaintanceLogAsset)
                     .HasColumnName("MaintanceLog_Asset")
@@ -471,38 +469,32 @@ namespace HAMDataLibrary
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
-
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
-
                 entity.HasOne(d => d.MaintanceLogAssetNavigation)
                     .WithMany(p => p.MaintenanceLogs)
                     .HasForeignKey(d => d.MaintanceLogAsset)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("MaintenanceLog_Asset");
+
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
+
             });
 
-            modelBuilder.Entity<Pictures>(entity =>
+            modelBuilder.Entity<Picture>(entity =>
             {
-                entity.Property(e => e.Caption).HasMaxLength(255);
-
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                entity.Property(e => e.Caption).HasMaxLength(255);                
 
                 entity.Property(e => e.Image)
                     .IsRequired()
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                    .HasDefaultValueSql("((0))");                
 
                 entity.Property(e => e.PictureAsset).HasColumnName("Picture_Asset");
 
                 entity.Property(e => e.PictureMaintanceLog).HasColumnName("Picture_MaintanceLog");
-
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
 
                 entity.HasOne(d => d.PictureAssetNavigation)
                     .WithMany(p => p.Pictures)
@@ -515,6 +507,14 @@ namespace HAMDataLibrary
                     .HasForeignKey(d => d.PictureMaintanceLog)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Picture_MaintenanceLog");
+
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
+
             });
 
             modelBuilder.Entity<RolePermissions>(entity =>
@@ -526,13 +526,9 @@ namespace HAMDataLibrary
                 entity.Property(e => e.PermissionId).HasMaxLength(322);
             });
 
-            modelBuilder.Entity<ServiceCompanies>(entity =>
+            modelBuilder.Entity<ServiceCompany>(entity =>
             {
                 entity.Property(e => e.ContactName).HasMaxLength(255);
-
-                entity.Property(e => e.CreatedBy).HasMaxLength(255);
-
-                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -541,9 +537,12 @@ namespace HAMDataLibrary
 
                 entity.Property(e => e.Phone).HasMaxLength(255);
 
-                entity.Property(e => e.RowVersion)
-                    .IsRequired()
-                    .IsRowVersion();
+                //TODO:Let's figure out the audit trail later 
+                //entity.Property(e => e.CreatedBy).HasMaxLength(255);
+                //entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+                //entity.Property(e => e.RowVersion)
+                //    .IsRequired()
+                //    .IsRowVersion();
             });
         }
     }

@@ -60,7 +60,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CreatedBy,Created,ModifiedBy,Modified,RowVersion,CategoryAsset,LocationAsset,AssetServiceCompany1")] Assets assets)
+        //public async Task<IActionResult> Create([Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CreatedBy,Created,ModifiedBy,Modified,RowVersion,CategoryAsset,LocationAsset,AssetServiceCompany1")] Assets assets)
+        public async Task<IActionResult> Create([Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CategoryAsset,LocationAsset,AssetServiceCompany1")] Asset assets)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +99,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CreatedBy,Created,ModifiedBy,Modified,RowVersion,CategoryAsset,LocationAsset,AssetServiceCompany1")] Assets assets)
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CreatedBy,Created,ModifiedBy,Modified,RowVersion,CategoryAsset,LocationAsset,AssetServiceCompany1")] Assets assets)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Make,Model,SerialNumber,Url,PurchaseDate,PurchasePrice,Quantity,DrawingsAvailable,Notes,CategoryAsset,LocationAsset,AssetServiceCompany1")] Asset assets)
         {
             if (id != assets.Id)
             {

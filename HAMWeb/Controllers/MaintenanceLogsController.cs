@@ -56,7 +56,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MaintenanceDate,Notes,IsCompleted,CreatedBy,Created,ModifiedBy,Modified,RowVersion,MaintanceLogAsset")] MaintenanceLogs maintenanceLogs)
+        //public async Task<IActionResult> Create([Bind("Id,MaintenanceDate,Notes,IsCompleted,CreatedBy,Created,ModifiedBy,Modified,RowVersion,MaintanceLogAsset")] MaintenanceLogs maintenanceLogs)
+        public async Task<IActionResult> Create([Bind("Id,MaintenanceDate,Notes,IsCompleted,MaintanceLogAsset")] MaintenanceLog maintenanceLogs)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MaintenanceDate,Notes,IsCompleted,CreatedBy,Created,ModifiedBy,Modified,RowVersion,MaintanceLogAsset")] MaintenanceLogs maintenanceLogs)
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,MaintenanceDate,Notes,IsCompleted,CreatedBy,Created,ModifiedBy,Modified,RowVersion,MaintanceLogAsset")] MaintenanceLogs maintenanceLogs)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MaintenanceDate,Notes,IsCompleted,MaintanceLogAsset")] MaintenanceLog maintenanceLogs)
         {
             if (id != maintenanceLogs.Id)
             {

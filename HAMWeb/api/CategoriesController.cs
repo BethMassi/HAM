@@ -22,7 +22,7 @@ namespace HAMWeb.api
 
         // GET: api/Categories
         [HttpGet]
-        public IEnumerable<Categories> GetCategories()
+        public IEnumerable<Category> GetCategories()
         {
             return _context.Categories;
         }
@@ -48,7 +48,7 @@ namespace HAMWeb.api
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategories([FromRoute] int id, [FromBody] Categories categories)
+        public async Task<IActionResult> PutCategories([FromRoute] int id, [FromBody] Category categories)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HAMWeb.api
 
         // POST: api/Categories
         [HttpPost]
-        public async Task<IActionResult> PostCategories([FromBody] Categories categories)
+        public async Task<IActionResult> PostCategories([FromBody] Category categories)
         {
             if (!ModelState.IsValid)
             {

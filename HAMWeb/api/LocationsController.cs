@@ -10,57 +10,57 @@ using HAMDataLibrary;
 namespace HAMWeb.api
 {
     [Produces("application/json")]
-    [Route("api/Assets")]
-    public class AssetsController : Controller
+    [Route("api/Locations")]
+    public class LocationsController : Controller
     {
         private readonly HAMDataContext _context;
 
-        public AssetsController(HAMDataContext context)
+        public LocationsController(HAMDataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Assets
+        // GET: api/Locations
         [HttpGet]
-        public IEnumerable<Asset> GetAssets()
+        public IEnumerable<Location> GetLocations()
         {
-            return _context.Assets;
+            return _context.Locations;
         }
 
-        // GET: api/Assets/5
+        // GET: api/Locations/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAssets([FromRoute] int id)
+        public async Task<IActionResult> GetLocation([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var assets = await _context.Assets.SingleOrDefaultAsync(m => m.Id == id);
+            var location = await _context.Locations.SingleOrDefaultAsync(m => m.Id == id);
 
-            if (assets == null)
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return Ok(assets);
+            return Ok(location);
         }
 
-        // PUT: api/Assets/5
+        // PUT: api/Locations/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAssets([FromRoute] int id, [FromBody] Asset assets)
+        public async Task<IActionResult> PutLocation([FromRoute] int id, [FromBody] Location location)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != assets.Id)
+            if (id != location.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(assets).State = EntityState.Modified;
+            _context.Entry(location).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace HAMWeb.api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AssetsExists(id))
+                if (!LocationExists(id))
                 {
                     return NotFound();
                 }
@@ -81,45 +81,45 @@ namespace HAMWeb.api
             return NoContent();
         }
 
-        // POST: api/Assets
+        // POST: api/Locations
         [HttpPost]
-        public async Task<IActionResult> PostAssets([FromBody] Asset assets)
+        public async Task<IActionResult> PostLocation([FromBody] Location location)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Assets.Add(assets);
+            _context.Locations.Add(location);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAssets", new { id = assets.Id }, assets);
+            return CreatedAtAction("GetLocation", new { id = location.Id }, location);
         }
 
-        // DELETE: api/Assets/5
+        // DELETE: api/Locations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAssets([FromRoute] int id)
+        public async Task<IActionResult> DeleteLocation([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var assets = await _context.Assets.SingleOrDefaultAsync(m => m.Id == id);
-            if (assets == null)
+            var location = await _context.Locations.SingleOrDefaultAsync(m => m.Id == id);
+            if (location == null)
             {
                 return NotFound();
             }
 
-            _context.Assets.Remove(assets);
+            _context.Locations.Remove(location);
             await _context.SaveChangesAsync();
 
-            return Ok(assets);
+            return Ok(location);
         }
 
-        private bool AssetsExists(int id)
+        private bool LocationExists(int id)
         {
-            return _context.Assets.Any(e => e.Id == id);
+            return _context.Locations.Any(e => e.Id == id);
         }
     }
 }

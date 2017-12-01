@@ -22,7 +22,7 @@ namespace HAMWeb.api
 
         // GET: api/MaintenanceLogs
         [HttpGet]
-        public IEnumerable<MaintenanceLogs> GetMaintenanceLogs()
+        public IEnumerable<MaintenanceLog> GetMaintenanceLogs()
         {
             return _context.MaintenanceLogs;
         }
@@ -48,7 +48,7 @@ namespace HAMWeb.api
 
         // PUT: api/MaintenanceLogs/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMaintenanceLogs([FromRoute] int id, [FromBody] MaintenanceLogs maintenanceLogs)
+        public async Task<IActionResult> PutMaintenanceLogs([FromRoute] int id, [FromBody] MaintenanceLog maintenanceLogs)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HAMWeb.api
 
         // POST: api/MaintenanceLogs
         [HttpPost]
-        public async Task<IActionResult> PostMaintenanceLogs([FromBody] MaintenanceLogs maintenanceLogs)
+        public async Task<IActionResult> PostMaintenanceLogs([FromBody] MaintenanceLog maintenanceLogs)
         {
             if (!ModelState.IsValid)
             {

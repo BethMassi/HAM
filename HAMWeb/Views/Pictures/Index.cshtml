@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HAMDataLibrary.Pictures>
+﻿@model IEnumerable<HAMDataLibrary.Picture>
 
 @{
     ViewData["Title"] = "Index";
@@ -20,22 +20,7 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IsDefaultPicture)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedBy)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Created)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ModifiedBy)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Modified)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RowVersion)
-                </th>
+                </th>               
             <th>
                 @Html.DisplayNameFor(model => model.PictureAssetNavigation)
             </th>
@@ -57,21 +42,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IsDefaultPicture)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Created)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RowVersion)
-            </td>
+          
             <td>
                 @Html.DisplayFor(modelItem => item.PictureAssetNavigation.Name)
             </td>

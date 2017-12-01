@@ -58,7 +58,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Image,Caption,IsDefaultPicture,CreatedBy,Created,ModifiedBy,Modified,RowVersion,PictureAsset,PictureMaintanceLog")] Pictures pictures)
+        //public async Task<IActionResult> Create([Bind("Id,Image,Caption,IsDefaultPicture,CreatedBy,Created,ModifiedBy,Modified,RowVersion,PictureAsset,PictureMaintanceLog")] Pictures pictures)
+        public async Task<IActionResult> Create([Bind("Id,Image,Caption,IsDefaultPicture,PictureAsset,PictureMaintanceLog")] Picture pictures)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +95,8 @@ namespace HAMWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Caption,IsDefaultPicture,CreatedBy,Created,ModifiedBy,Modified,RowVersion,PictureAsset,PictureMaintanceLog")] Pictures pictures)
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Caption,IsDefaultPicture,CreatedBy,Created,ModifiedBy,Modified,RowVersion,PictureAsset,PictureMaintanceLog")] Pictures pictures)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Caption,IsDefaultPicture,PictureAsset,PictureMaintanceLog")] Picture pictures)
         {
             if (id != pictures.Id)
             {

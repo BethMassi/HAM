@@ -1,4 +1,4 @@
-﻿@model HAMDataLibrary.Categories
+﻿@model HAMDataLibrary.Category
 
 @{
     ViewData["Title"] = "Delete";
@@ -17,36 +17,7 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Modified)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Modified)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RowVersion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RowVersion)
-        </dd>
+       
     </dl>
     
     <form asp-action="Delete">

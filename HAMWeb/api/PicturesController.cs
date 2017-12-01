@@ -22,7 +22,7 @@ namespace HAMWeb.api
 
         // GET: api/Pictures
         [HttpGet]
-        public IEnumerable<Pictures> GetPictures()
+        public IEnumerable<Picture> GetPictures()
         {
             return _context.Pictures;
         }
@@ -48,7 +48,7 @@ namespace HAMWeb.api
 
         // PUT: api/Pictures/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPictures([FromRoute] int id, [FromBody] Pictures pictures)
+        public async Task<IActionResult> PutPictures([FromRoute] int id, [FromBody] Picture pictures)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HAMWeb.api
 
         // POST: api/Pictures
         [HttpPost]
-        public async Task<IActionResult> PostPictures([FromBody] Pictures pictures)
+        public async Task<IActionResult> PostPictures([FromBody] Picture pictures)
         {
             if (!ModelState.IsValid)
             {
