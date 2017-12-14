@@ -22,7 +22,7 @@ namespace HAMDataLibrary
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
-        public virtual DbSet<RolePermissions> RolePermissions { get; set; }
+        public virtual DbSet<RolePermission> RolePermissions { get; set; }
         public virtual DbSet<ServiceCompany> ServiceCompanies { get; set; }
 
         public HAMDataContext(DbContextOptions<HAMDataContext> options) : base(options)
@@ -517,7 +517,7 @@ namespace HAMDataLibrary
 
             });
 
-            modelBuilder.Entity<RolePermissions>(entity =>
+            modelBuilder.Entity<RolePermission>(entity =>
             {
                 entity.HasKey(e => new { e.RoleName, e.PermissionId });
 
