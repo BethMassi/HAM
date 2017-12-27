@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace HAMDataLibrary
+namespace HAM.Models
 {
     public partial class MaintenanceLog
     {
@@ -12,13 +11,10 @@ namespace HAMDataLibrary
         }
 
         public int Id { get; set; }
-        [Display(Name = "Maintenance Date")]
         public DateTime MaintenanceDate { get; set; }
         public string Notes { get; set; }
-        [Display(Name = "Completed?")]
         public bool? IsCompleted { get; set; }        
         public int MaintanceLogAsset { get; set; }
-        [Display(Name = "Asset")]
         public Asset MaintanceLogAssetNavigation { get; set; }
         public ICollection<Picture> Pictures { get; set; }
 

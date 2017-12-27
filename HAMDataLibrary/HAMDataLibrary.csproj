@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HAM.Models\HAM.Models.csproj" />
+  </ItemGroup>
+
 </Project>

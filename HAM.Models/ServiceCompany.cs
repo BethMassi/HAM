@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace HAMDataLibrary
+namespace HAM.Models
 {
     public partial class ServiceCompany
     {
@@ -13,7 +12,6 @@ namespace HAMDataLibrary
 
         public int Id { get; set; }
         public string Name { get; set; }
-        [Display(Name = "Contact Name")]
         public string ContactName { get; set; }
         public string Phone { get; set; }
         public ICollection<Asset> Assets { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using HAM.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

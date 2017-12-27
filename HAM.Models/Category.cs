@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace HAMDataLibrary
+namespace HAM.Models
 {
     public partial class Category
     {

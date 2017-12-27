@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace HAMDataLibrary
+namespace HAM.Models
 {
     public partial class Picture
     {
         public int Id { get; set; }
         public byte[] Image { get; set; }
         public string Caption { get; set; }
-        [Display(Name = "Default Picture?")]
         public bool? IsDefaultPicture { get; set; }
         public int? PictureAsset { get; set; }
         public int? PictureMaintanceLog { get; set; }
-        [Display(Name = "Asset")]
         public Asset PictureAssetNavigation { get; set; }
-        [Display(Name = "Maintenance Log")]
         public MaintenanceLog PictureMaintanceLogNavigation { get; set; }
 
         //TODO:Let's figure out the audit trail later 
